@@ -1,6 +1,6 @@
 <template>
   <v-layout row justify-center align-center>
-        <v-form ref="form" lazy-validation>
+        <v-form ref="form" @submit.prevent="validate" lazy-validation>
             <v-flex justify="center">
 
                 <p class="text-center display-1">Efetuar Login</p>
@@ -32,7 +32,7 @@
                     </v-text-field>
                 </v-flex>
                 <v-flex xs12>
-                    <v-btn large color="#00f07c" @click="validate" block class="white--text">Enviar</v-btn>
+                    <v-btn large color="#00f07c" type="submit" block class="white--text">Enviar</v-btn>
                 </v-flex>
                 <v-flex xs12 class="text-center">
                     <v-btn to="registrar" text small color="primary">Não tenho uma conta</v-btn>

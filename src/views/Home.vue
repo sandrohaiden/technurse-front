@@ -1,11 +1,13 @@
 <template >
     <div>
-        <p class="text-center display-1">Congratulations!</p>
-        {{email}}
-        
-        <v-btn color="orange" @click="logout">
-            Logout
-        </v-btn>
+        <v-container>
+            <p class="text-center display-1">Congratulations!</p>
+            {{email}}
+            <br>
+            <v-btn color="orange" @click="logout">
+                Logout
+            </v-btn>
+        </v-container>
     </div>
 </template>
 
