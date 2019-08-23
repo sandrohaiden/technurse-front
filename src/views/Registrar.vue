@@ -118,8 +118,8 @@ export default {
             number: 0,
             valid: false,
             emailRules: [
-                v => !!v || 'E-mail is required',
-                v => /.+@.+/.test(v) || 'E-mail must be valid',
+                v => !!v || 'E-mail é obrigatório',
+                v => /.+@.+/.test(v) || 'E-mail precisa ter um formato válido',
             ],
             confirmationRules: [
                 v => !!v || 'A confirmação da senha é necessária',
