@@ -22,9 +22,12 @@ export default {
         }
     },
     methods: {
-        ...mapActions([
+        /*...mapActions([
         'logout',
-        ]),
+        ]),*/
+        logout() {
+            this.$store.dispatch('logout');
+        }
     },
     created(){
         axios.get(`${url}/user`, {

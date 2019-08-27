@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import axios from 'axios';
 import { url } from './config';
 import router from './router';
+import EventBus from './EventBus';
 
 Vue.use(Vuex)
 
@@ -27,6 +28,11 @@ export default new Vuex.Store({
       const ste = state;
       ste.accessToken = accessToken;
     },
+    logout: (state) => {
+      const ste = state;
+      ste.user = null;
+      ste.accessToken = false;
+    },
   },
   actions: {
     doLogin({ commit }, loginData) {
@@ -37,15 +43,17 @@ export default new Vuex.Store({
           ...loginData,
         })
         .then((response) => {
-          console.log(response.data);
+          EventBus.$emit('alt-snackbar', { color: 'success', msg: 'Login Realizado' });
           localStorage.setItem('accessToken', response.data.token);
           commit('loginStop', null);
           commit('updateAccessToken', response.data.token);
           router.push('/home');
         })
         .catch((error) => {
-          console.log(error);
           //commit('loginStop', error.response.data.error);
+          if(error.response.status) {
+            EventBus.$emit('alt-snackbar', { color: 'error', msg: 'Credenciais Incorretas' });
+          }
           commit('updateAccessToken', null);
         });
     },

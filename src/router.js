@@ -41,8 +41,9 @@ async function checkPathLogin(to, from, next) {
     }).catch(() => {
       store.dispatch('logout');
     });
+  } else {
+    return next();
   }
-  return next();
 }
 
 export default new Router({
@@ -58,6 +59,7 @@ export default new Router({
       name: 'login',
       component: Login,
       beforeEnter: checkPathLogin,
+      
     },
     {
       path: '/registrar',

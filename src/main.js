@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import vuetify from './plugins/vuetify';
+import EventBus from './EventBus';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.prototype.$bus = EventBus;
 
 new Vue({
   router,

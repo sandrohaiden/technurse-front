@@ -71,9 +71,6 @@ export default {
 
         async submit() {
             this.doLogin(this.send);
-            setTimeout(() => {
-                console.log(this.$store.state.accessToken);
-            }, 1000);
         },
     }
 };
